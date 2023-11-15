@@ -1,0 +1,137 @@
+POST http://localhost:3000/api/users
+Content-Type: application/json
+Accept: application/json
+
+{
+  "username": "jefry",
+  "password": "rahasia",
+  "name": "Jefry Kurniawan",
+}
+
+### token
+POST http://localhost:3000/api/users/login 
+Content-Type: application/json
+Accept: application/json
+
+{
+  "username": "jefry",
+  "password": "rahasia",
+}
+
+###
+
+GET http://localhost:3000/api/users/current 
+Content-Type: application/json
+Accept: application/json
+Authorization: token
+
+
+###
+
+PATCH  http://localhost:3000/api/users/current 
+Content-Type: application/json
+Accept: application/json
+Authorization: token
+
+{
+  "name": "Jefry Kurniawan Marzuki"
+}
+
+
+####
+DELETE  http://localhost:3000/api/users/logout 
+Content-Type: application/json
+Accept: application/json
+Authorization: token
+
+###
+
+POST http:localhost:3000/api/contacts
+Content-Type: application/json
+Accept: application/json
+Authorization: token
+
+{
+  "first_name" : "Jefry",
+  "last_name" : "Kurniawan",
+  "email" : "jefry@gmail.com",
+  "phone" : "083426462342",
+}
+
+###
+GET  http:localhost:3000/api/contacts
+Content-Type: application/json
+Accept: application/json
+Authorization: token
+
+
+###
+GET  http:localhost:3000/api/contacts/:contactId
+Content-Type: application/json
+Accept: application/json
+Authorization: token
+
+### Update contact
+GET  http:localhost:3000/api/contacts/:contactId
+Content-Type: application/json
+Accept: application/json
+Authorization: token
+
+{
+  "first_name" : "Paijo",
+  "last_name" : "Saputro",
+  "email" : "paijo@gmail.com",
+  "phone" : "083426462342",
+}
+
+### Delete contact
+DELETE http:localhost:3000/api/contacts/:contactId
+Content-Type: application/json
+Accept: application/json
+Authorization: token
+
+{
+  "first_name" : "Paijo",
+  "last_name" : "Saputro",
+  "email" : "paijo@gmail.com",
+  "phone" : "083426462342",
+}
+
+### Create addresses
+POST  http:localhost:3000/api/contacts/:contactId/addresses
+Content-Type: application/json
+Accept: application/json
+Authorization: token
+
+{
+  "street" : "Jalan belum jadi",
+  "city" : "Magetan",
+  "province" : "Jawa Timur",
+  "country" : "Indonesia",
+  "postal_code" : "63362",
+}
+
+### List addresses
+GET http:localhost:3000/api/contacts/:contactId/addresses
+Content-Type: application/json
+Accept: application/json
+Authorization: token
+
+### Get addresses
+GET http:localhost:3000/api/contacts/:contactId/addresses/:addressId
+Content-Type: application/json
+Accept: application/json
+Authorization: token
+
+### Update addresses
+PUT http:localhost:3000/api/contacts/:contactId/addresses/:addressId
+Content-Type: application/json
+Accept: application/json
+Authorization: token
+{
+  "street" : "Jalan belum jadi",
+  "city" : "Magetan",
+  "province" : "Jawa Tengah",
+  "country" : "Indonesia",
+  "postal_code" : "63362",
+}
